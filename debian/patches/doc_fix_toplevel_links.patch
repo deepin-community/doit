@@ -1,0 +1,61 @@
+Index: doit/doc/index.html
+===================================================================
+--- doit.orig/doc/index.html	2024-01-13 23:36:51.322159525 +0100
++++ doit/doc/index.html	2024-01-13 23:40:33.456116378 +0100
+@@ -49,9 +49,9 @@
+             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
+             <div id="navigation" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav ml-auto">
+-                <li class="nav-item menu-large"><a href="/contents.html">Docs</a></li>
++                <li class="nav-item menu-large"><a href="contents.html">Docs</a></li>
+                 <li class="nav-item menu-large"><a href="https://github.com/pydoit/doit">Development</a>
+-                <li class="nav-item menu-large"><a href="/support.html">Support</a></li>
++                <li class="nav-item menu-large"><a href="support.html">Support</a></li>
+               </ul>
+             </div>
+           </div>
+@@ -80,7 +80,7 @@
+             <div class="container">
+               <div class="homepage owl-carousel">
+                 <div class="item">
+-                  <h2 style="text-transform:inherit;font-weight:inherit;">A <b><a href="/stories.html#game-development">game developer</a></b> uses <code>doit</code> to</h2>
++                  <h2 style="text-transform:inherit;font-weight:inherit;">A <b><a href="stories.html#game-development">game developer</a></b> uses <code>doit</code> to</h2>
+ 
+                   <ul>
+                     <li>Automate all project related tasks <small>(code generation, cross-compilation, resource generation)</small></li>
+@@ -90,7 +90,7 @@
+                 </div>
+ 
+                 <div class="item">
+-                  <h2 style="text-transform:inherit;font-weight:inherit;">A <b><a href="/stories.html#computational-metagenomics-lab-university-of-trento-italy">bioinformatics developer</a></b> uses <code>doit</code> to</h2>
++                  <h2 style="text-transform:inherit;font-weight:inherit;">A <b><a href="stories.html#computational-metagenomics-lab-university-of-trento-italy">bioinformatics developer</a></b> uses <code>doit</code> to</h2>
+ 
+                   <ul>
+                     <li>Create a reproduceable computational pipeline</li>
+@@ -108,7 +108,7 @@
+                   </ul>
+                 </div>
+               </div>
+-              <div class="text-center"><a href="/usecases.html">View all use-cases</a></div>
++              <div class="text-center"><a href="usecases.html">View all use-cases</a></div>
+             </div>
+           </div>
+           <!-- Carousel End-->
+@@ -123,7 +123,7 @@
+               <h2>Sample Code</h2>
+               <p>Define functions returning python <em>dict</em> with task's meta-data.</p>
+             </div>
+-            <p class="col-lg-12 col-md-12">Snippet from <a href="/tutorial-1.html">tutorial</a>.</p>
++            <p class="col-lg-12 col-md-12">Snippet from <a href="tutorial-1.html">tutorial</a>.</p>
+ 
+             <div class="col-lg-6 col-md-12">
+               <!-- pygmentize -f html sample.py -->
+@@ -421,7 +421,7 @@
+             </dl>
+             <dl class="row text-left">
+               <dt class="col-md-2 col-sm-3">SUPPORT</dt>
+-              <dd class="col">See <a href="/support.html">support page</a></dd>
++              <dd class="col">See <a href="support.html">support page</a></dd>
+             </dl>
+             <dl class="row text-left">
+               <dt class="col-md-2 col-sm-3">DEVELOP</dt>

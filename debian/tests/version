@@ -1,0 +1,4 @@
+#!/bin/sh
+# autopkgtest: Run doit and check it doesnt break
+
+doit --version
