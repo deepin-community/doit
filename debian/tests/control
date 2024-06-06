@@ -1,0 +1,20 @@
+Tests: version
+Depends: @,
+ python3-pytest,
+ python3-pip,
+ python3-wheel,
+ python3-pyflakes,
+ python3-pytest,
+ python3-coverage,
+ python3-setuptools,
+Restrictions: superficial
+
+Test-Command: pytest-3 -k "not (test_execute or test_dep or test_target)"
+Depends: @,
+ python3-pytest,
+ python3-pip,
+ python3-wheel,
+ python3-pyflakes,
+ python3-pytest,
+ python3-coverage,
+ python3-setuptools,

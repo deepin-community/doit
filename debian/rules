@@ -1,4 +1,42 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+export PYBUILD_NAME=$(DEB_SOURCE)
+export PYBUILD_TEST_ARGS=-k "not (test_execute or test_dep or test_target)"
 
 %:
-	dh $@
+	dh $@ --with bash-completion,sphinxdoc,python3 --buildsystem=pybuild
+
+override_dh_bash-completion:
+	dh_bash-completion
+	cp zsh_completion_doit debian/python3-doit/usr/share/zsh/vendor-completions/_doit
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf doc/_build
+	rm -f debian/doit.1
+	rm -f tests/data/stop
+	rm -f tests/data/dependency*
+	rm -f tests/data/target
+	rm -f tests/data/w*.txt
+
+execute_before_dh_installman:
+	# Generate manpages, stripping out the non-reproducible 'lib @ <dir>' line.
+	PYTHONPATH=$(CURDIR) help2man -n "build-tools to execute any kind of task" -N debian/python3-doit/usr/bin/doit | grep -v 'lib @' > debian/doit.1
+
+execute_before_dh_installdocs:
+	# build the html pages for the -doc package
+	set -ex; \
+		export PYTHONPATH=$(CURDIR); \
+		cd doc; \
+		make html;
+
+override_dh_installexamples:
+	dh_installexamples -X.gitignore
+
+get-orig-source:
+	uscan --download-version $(DEB_VERSION_UPSTREAM)

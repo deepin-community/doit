@@ -1,5 +1,249 @@
-template-repository (1.0-1) unstable; urgency=medium
+doit (0.36.0-2) unstable; urgency=medium
 
-  * Initial release
+  * Team upload
+  * remove old extraneous dependencies on python3-mock & python3-six
+  * Rules-Requires-Root: no
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Drew Parsons ]
+  * mark python-doit-doc as Multi-Arch: foreign
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 11 Feb 2024 23:07:12 +0100
+
+doit (0.36.0-1) unstable; urgency=medium
+
+  [ Iñaki Malerba ]
+  * New upstream version 0.36.0. Closes: #1042459.
+
+  [ Drew Parsons ]
+  * move doit to the Debian Python Team
+  * add debian patches
+    - doc_theme_no_press.patch drops unmaintained press
+      theme (which breaks dh_sphinxdoc) and uses default rtd theme
+      Build-Depends: python3-sphinx-rtd-theme
+      not python3-sphinx-press-theme
+    - doc_privacy.patch replaces node-html5shiv external link with
+      link to local file. doc Suggests: node-html5shiv
+    - doc_fix_toplevel_links.patch fixes relative href paths to local
+      doc files
+  * run build-time and runtime tests with pytest, skipping
+    test_execute, test_dep, test_target (which require doit-py, not
+    packaged for debian). Drop debian/tests/unittests (also requires
+    doit-py)
+  * mark debian/tests/version as superficial. Closes: #971463.
+  * use doit script to create man page to avoid .sh suffix in help text.
+    Add whatis entry to man page: "build-tools to execute any kind of
+    task".  Use -N to drop texinfo reference. Closes: #944814.
+  * update debian/watch to latest format (v4)
+  * debhelper compatibility level 13
+    Build-Depends: debhelper-compat (= 13)
+  * Standards-Version: 4.6.2
+  * exclude .gitignore from dh_installexamples (it is found in
+    doc/samples in the upstream tarball)
+
+ -- Drew Parsons <dparsons@debian.org>  Sun, 14 Jan 2024 00:36:44 +0100
+
+doit (0.31.1-3) unstable; urgency=medium
+
+  [ Salsa Pipeline ]
+  * Update salsa CI pipeline
+
+  [ Iñaki Malerba ]
+  * Fix pytest issue (Closes: #942236)
+
+ -- Iñaki Malerba <inaki@malerba.space>  Sat, 26 Oct 2019 10:26:14 +0200
+
+doit (0.31.1-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/copyright: Use https protocol in Format field
+  * d/changelog: Remove trailing whitespaces
+  * d/control: Remove trailing whitespaces
+
+  [ Iñaki Malerba ]
+  * Test fixtures patch. (Closes: #907379)
+
+ -- Agustin Henze <tin@debian.org>  Wed, 02 Jan 2019 15:41:31 +0000
+
+doit (0.31.1-1) unstable; urgency=medium
+
+  [ Iñaki Malerba ]
+  * New upstream version 0.31.1
+  * Add lintian job to ci
+  * Test build reproducibility.
+  * Fix examples path (Closes: #903170)
+  * tests/control: replace python3-doit with @
+  * Update standards version
+  * Fix fixtures error on tests.
+
+  [ Agustin Henze ]
+  * Add pipeline template
+  * Add piuparts check
+
+ -- Iñaki Malerba <inaki@malerba.space>  Tue, 17 Jul 2018 09:23:06 -0300
+
+doit (0.31.0-2) unstable; urgency=medium
+
+  [ Iñaki Malerba ]
+  * Add python3-setuptools as a dependency on autopkgtest
+
+ -- Agustin Henze <tin@debian.org>  Fri, 16 Mar 2018 10:51:50 -0300
+
+doit (0.31.0-1) unstable; urgency=medium
+
+  [ Iñaki Malerba ]
+  * Add runtime dependency on python3-pkg-resources.
+  * Add tests for autopkgtest.
+  * Add a CI job for running autopkgtest.
+
+  [ Agustin Henze ]
+  * New upstream version 0.31.0.
+  * Migration to salsa
+    * Add debian/gitlab-ci.yml.
+    * Update Vcs-Git and Vcs-Browser.
+  * Add current directory to the varenv PYTHONPATH when it builds doc.
+  * Add Iñaki Malerba as maintainer.
+
+ -- Agustin Henze <tin@debian.org>  Tue, 13 Mar 2018 16:19:01 -0300
+
+doit (0.30.3-3) unstable; urgency=medium
+
+  * Make the build reproducible, thanks to lamby! (Closes: #875792)
+
+ -- Agustin Henze <tin@debian.org>  Wed, 20 Sep 2017 20:18:03 -0300
+
+doit (0.30.3-2) unstable; urgency=medium
+
+  * Deprecate and Break on py2 python-doit.
+  * Point to proper Vcs-* URLs.
+
+ -- Ulises Vitulli <dererk@debian.org>  Sun, 06 Aug 2017 23:12:57 -0300
+
+doit (0.30.3-1) unstable; urgency=medium
+
+  * New upstream version 0.30.3
+  * Update watch url, the project has been moved from bitbucket to github
+  * python-doit package has been removed, upstream doesn't support python2
+    anymore
+  * Use help2man to deliver an updated manpage
+  * Bumped Standard-Version to 4.0.0 (no changes required)
+  * Use https for Vcs-* fields
+  * Use uscan for get-orig-source target
+  * Use the proper patch for zsh completion (Closes: #843581, #797180)
+
+ -- Agustin Henze <tin@debian.org>  Sat, 05 Aug 2017 18:32:10 -0400
+
+doit (0.28.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.28.0
+  * Bumped Standard-Version to 3.9.6 (no changes required)
+
+ -- Ulises Vitulli <dererk@debian.org>  Sat, 20 Jun 2015 16:22:58 -0300
+
+doit (0.28.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.28.0
+  * Bumped Standard-Version to 3.9.6 (no changes required)
+
+ -- Ulises Vitulli <dererk@debian.org>  Sat, 20 Jun 2015 16:22:58 -0300
+
+doit (0.25.0-2) unstable; urgency=medium
+
+  * Remove depends on python3.3 (Closes: #751643)
+
+ -- Agustin Henze <tin@debian.org>  Mon, 16 Jun 2014 11:40:07 -0300
+
+doit (0.25.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.25.0
+  * Disable test suite at debian package building time (Closes: #747956)
+
+ -- Agustin Henze <tin@debian.org>  Thu, 12 Jun 2014 20:17:08 -0300
+
+doit (0.24.0-1) unstable; urgency=medium
+
+  * Change the url in debian/watch file
+  * Imported Upstream version 0.24.0
+  * Bumped Standard-Version to 3.9.5 (no changes required)
+  * Use pybuild as buildsystem
+  * Update manpage
+  * Run the test suite again
+  * get-orig-source uses uscan instead of wget
+
+ -- Agustin Henze <tin@debian.org>  Thu, 05 Dec 2013 11:39:03 -0300
+
+doit (0.23.0-1) unstable; urgency=low
+
+  * Imported Upstream version 0.23.0
+  * Remove the command for run test cases in debian/rules file. It fix FTBFS in
+    pbuilder, bug fixed in the next upstream version.
+
+ -- Agustin Henze <tin@debian.org>  Fri, 20 Sep 2013 19:40:35 -0300
+
+doit (0.22.1-1) unstable; urgency=low
+
+  * Imported Upstream version 0.22.1
+  * Add get-orig-source target into debian/rules file
+
+ -- Agustin Henze <tin@debian.org>  Thu, 15 Aug 2013 14:30:41 +0200
+
+doit (0.22.0-1) unstable; urgency=low
+
+  * Imported Upstream version 0.22.0 (Closes: #711879) "bash completion script
+    overwrites global COMP_WORDBREAKS"
+  * Add missed build-dependency on python3-pyinotify.
+  * Remove unnecessary build-dependency on python-support.
+  * Add target override_dh_auto_test for run the test suite in debian/rules
+    file.
+
+ -- Agustin Henze <tin@debian.org>  Thu, 01 Aug 2013 17:48:41 -0300
+
+doit (0.21.1-1) unstable; urgency=low
+
+  * Imported Upstream version 0.21.1
+  * Add new dependency, the new version use six project for run in python2
+    and python3.
+  * Add missing dependencies (strace, python-gdbm, python3-gdbm).
+  * Little improvements in package description.
+  * Change the url in the Vcs-Git field by the canonical url.
+  * Remove the command for run test cases in debian/rules file. It fix FTBFS in
+    pbuilder.
+  * Convert debian/copyright file to machine readable.
+
+ -- Agustin Henze <tin@sluc.org.ar>  Fri, 31 May 2013 19:38:36 -0300
+
+doit (0.20.0-1) unstable; urgency=low
+
+  * Imported Upstream version 0.20.0
+  * Use sphinxdoc option from debhelper to build the documentation:
+    - debian/control: Added missing dependency on python(3)-sphinx.
+    - debian/python-doit-doc.links: removed, now handled by sphinxdoc.
+    - debian/rules: Clean-up symlinks
+  * Fixed author in debian/python-doit-doc.doc-base file
+  * Added call to run test cases
+    - Added dependency on python-mock and strace.
+  * Updated home page url
+  * Replaced "DoIt" for "doit" asked by the upstream author
+  * Improved package description
+
+ -- Agustin Henze <tin@sluc.org.ar>  Thu, 07 Feb 2013 18:48:58 -0300
+
+doit (0.19.0-1) unstable; urgency=low
+
+  * New upstream release
+    - Adds support for python3.
+    - Update standard version from 3.9.3 to 3.9.4.
+
+ -- Agustin Henze <tin@sluc.org.ar>  Fri, 21 Dec 2012 19:47:27 -0300
+
+doit (0.17.0-2) unstable; urgency=low
+
+  * Workaround a debhelper rewrite so we leave the version dependency up to
+    the python alternatives system.
+
+ -- Agustin Henze <tin@sluc.org.ar>  Wed, 10 Oct 2012 12:16:18 -0300
+
+doit (0.17.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #689742).
+
+ -- Agustin Henze <tin@sluc.org.ar>  Wed, 03 Oct 2012 21:23:41 -0300
